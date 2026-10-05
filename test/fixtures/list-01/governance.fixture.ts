@@ -1,4 +1,5 @@
 import { network } from 'hardhat';
+import { parseEther } from 'viem';
 
 const { viem, networkHelpers } = await network.getOrCreate();
 
@@ -34,11 +35,24 @@ export async function deployGovernance(
 }
 
 export async function deployGovernanceFixture() {
-    return deployGovernance();
+    return deployGovernance(
+        50_400,
+        0n,
+    );
 }
 
 export async function deployShortVotingGovernanceFixture() {
-    return deployGovernance(5);
+    return deployGovernance(
+        5,
+        0n,
+    );
+}
+
+export async function deployProposalThresholdFixture() {
+    return deployGovernance(
+        50_400,
+        parseEther("1000"),
+    );
 }
 
 export { networkHelpers };
