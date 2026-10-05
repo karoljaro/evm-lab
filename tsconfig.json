@@ -25,6 +25,7 @@
     "noPropertyAccessFromIndexSignature": false
   },
   "include": [
+    "artifacts/**/*.d.ts",
     "hardhat.config.ts",
     "scripts/**/*.ts",
     "test/**/*.ts",

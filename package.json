@@ -6,6 +6,10 @@
     "compile": "hardhat compile",
     "test": "hardhat test",
     "test:solidity": "hardhat test solidity",
+    "test:typescript": "hardhat test nodejs",
+    "test:production": "hardhat test --build-profile production",
+    "test:coverage": "hardhat test --coverage",
+    "check": "hardhat build && tsc --noEmit && hardhat test",
     "clean": "hardhat clean",
     "typecheck": "tsc --noEmit"
   },
