@@ -2,7 +2,10 @@ import { network } from 'hardhat';
 
 const { viem, networkHelpers } = await network.getOrCreate();
 
-export async function deployGovernanceFixture() {
+export async function deployGovernance(
+    votingPeriod = 50_400,
+    proposalThreshold = 0n,
+) {
     const wallets = await viem.getWalletClients();
 
     if (wallets.length < 4)
@@ -17,7 +20,7 @@ export async function deployGovernanceFixture() {
 
     const token = await viem.deployContract("GovToken");
 
-    const dao = await viem.deployContract("MyDAO", [token.address]);
+    const dao = await viem.deployContract("MyDAO", [token.address, votingPeriod, proposalThreshold]);
 
     return {
         token,
@@ -28,6 +31,14 @@ export async function deployGovernanceFixture() {
         accountC,
         accountD
     }
+}
+
+export async function deployGovernanceFixture() {
+    return deployGovernance();
+}
+
+export async function deployShortVotingGovernanceFixture() {
+    return deployGovernance(5);
 }
 
 export { networkHelpers };

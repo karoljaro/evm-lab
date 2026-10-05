@@ -15,12 +15,16 @@ contract MyDAO is
     GovernorVotes,
     GovernorVotesQuorumFraction
 {
-    constructor(IVotes token)
+    constructor(
+        IVotes token,
+        uint32 votingPeriod_,
+        uint256 proposalThreshold_
+    )
         Governor("MyDAO")
         GovernorSettings(
             1,
-            50_400,
-            0
+            votingPeriod_,
+            proposalThreshold_
         )
         GovernorVotes(token)
         GovernorVotesQuorumFraction(4)
