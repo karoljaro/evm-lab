@@ -1,0 +1,107 @@
+{
+  "measuredAt": "2026-10-26T08:52:32.626Z",
+  "environment": {
+    "node": "24.21.0",
+    "bunLauncher": "1.4.4",
+    "hardhat": "3.18.1",
+    "viem": "2.57.3",
+    "solc": "0.8.37+commit.f401782d",
+    "compilerBuildId": "solc-0_8_37-d241b1ff8c9eab7e0cdbb0b8eac4829d62878f7c",
+    "evmVersion": "cancun",
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "network": "hardhatMainnet",
+    "hardfork": "cancun",
+    "chainType": "l1"
+  },
+  "method": "Mined transactionReceipt.gasUsed; fresh snapshot for each path, no fork, no deployment/mint/seed/user-approval costs; includes intrinsic gas, refunds, and V1 router forceApprove. No timing measurements.",
+  "sourceSha256": {
+    "hardhat.config.ts": "2095d5a3faa4ef72645bb04a9e4d5b1305ec5b078f5fc46d4ee295e14dd7d629",
+    "package.json": "989411d847f4a696926d1059a0fe2b72ed37e6999a92a505072b4019fabfbefd",
+    "bun.lock": "7b514aaa08ed08df3c64d67807a6d862bca28510deb9b637d517fb051b0e2deb",
+    "contracts/list-02/PoolMath.sol": "14cea6ea6e24211437d60e49cc4f59dbb1898ae5dc2cd9fe6f61d5a122874116",
+    "contracts/list-02/PoolShares.sol": "31d4c9706877747ad03be4bc8f65583daa6b97827c3ec432e26d15b9755df03d",
+    "contracts/list-02/MiniUniswapV1.sol": "d8449abdc143f6a08a99ef16cc4eaa1e86a9b1ca9c17ca7a6840a3cc89ed1893",
+    "contracts/list-02/MiniUniswapV2.sol": "5caa507d957e2ba0658974355b02cba00d590782a8c5b10be6cc16ddf4d92f12",
+    "contracts/list-02/MiniRouter.sol": "f7e08b51065eb16e01dfdd9343826b26f8d7a4a3e77955ecd2f51c574697a154",
+    "contracts/list-02/mocks/TestTokens.sol": "669ebe08bae84ad61f69b8d0f1d14c51e478e97b28af4f5088fea6a0ca1d138f",
+    "test/fixtures/list-02/uniswap.fixture.ts": "0888944b11b63d85af9fca0bff0086270ab6aec4100d0d93a2d5e1611e358002",
+    "test/list-02/routing-gas.test.ts": "175ce9bc537858b115f45d2120641cfcba53cf55482615a5fd6bbd22a3b87491"
+  },
+  "samples": [
+    {
+      "scenario": "equal-pool-reserves-zero-recipient",
+      "inputA": "1",
+      "v1EachPoolTokenReserve": "100",
+      "v1EachPoolEthReserve": "100",
+      "v2EachTokenReserve": "100",
+      "v1AtomicGas": "158334",
+      "v1Hop1Gas": "66146",
+      "v1Hop2Gas": "72428",
+      "v1TwoTransactionsGas": "138574",
+      "v2AtomicGas": "103475",
+      "v1AtomicMinusV2Gas": "54859",
+      "v1TwoTransactionsMinusV2Gas": "35099",
+      "v1AtomicErc20Transfers": 3,
+      "v2AtomicErc20Transfers": 2,
+      "v1OutputB": "0.9746045359743426",
+      "v2OutputB": "0.987158034397061298",
+      "transactionHashes": [
+        "0x4192c6b172d77bdc3ace56a2104e4b74ae668172f3555c8865448803d3c15c88",
+        "0x5b73d167c44be5c7e56ead499a4ab1270bbb4388a16f8b18ee1cef2a4698ab79",
+        "0x8163826f5d94783d96838e0949db172b70f132f11ddabf9ecb97b81d29c58540",
+        "0x67e9334a40b2505b09df18bc2b7130e884c2661564ba11e5206deef41dfac800"
+      ]
+    },
+    {
+      "scenario": "equal-pool-reserves-existing-recipient",
+      "inputA": "1",
+      "v1EachPoolTokenReserve": "100",
+      "v1EachPoolEthReserve": "100",
+      "v2EachTokenReserve": "100",
+      "v1AtomicGas": "144654",
+      "v1Hop1Gas": "66146",
+      "v1Hop2Gas": "55328",
+      "v1TwoTransactionsGas": "121474",
+      "v2AtomicGas": "86375",
+      "v1AtomicMinusV2Gas": "58279",
+      "v1TwoTransactionsMinusV2Gas": "35099",
+      "v1AtomicErc20Transfers": 3,
+      "v2AtomicErc20Transfers": 2,
+      "v1OutputB": "0.9746045359743426",
+      "v2OutputB": "0.987158034397061298",
+      "transactionHashes": [
+        "0xec5d7ebd3347dee30c6272bba864f083327134fa83e6e2a4c0e9e4631e0dc567",
+        "0xea8e92a646a48f8008892ff7131ca96ff469971175197b057c97f4601732ff7b",
+        "0x391138c482dafcc157f217d7b80334d968f919e4b8d52c9f56315730fb92385f",
+        "0xad679924f7dd49eaa8741798471865e2ee931d56305edf1bdcc01df1ce1d550d"
+      ]
+    },
+    {
+      "scenario": "matched-no-fee-depth-zero-recipient",
+      "inputA": "1",
+      "v1EachPoolTokenReserve": "100",
+      "v1EachPoolEthReserve": "100",
+      "v2EachTokenReserve": "50",
+      "v1AtomicGas": "158334",
+      "v1Hop1Gas": "66146",
+      "v1Hop2Gas": "72428",
+      "v1TwoTransactionsGas": "138574",
+      "v2AtomicGas": "103475",
+      "v1AtomicMinusV2Gas": "54859",
+      "v1TwoTransactionsMinusV2Gas": "35099",
+      "v1AtomicErc20Transfers": 3,
+      "v2AtomicErc20Transfers": 2,
+      "v1OutputB": "0.9746045359743426",
+      "v2OutputB": "0.977508480891032805",
+      "transactionHashes": [
+        "0xd00554d4d858d6e22f8a5c2e65550a582989582d205bac5fc3d3d1f36f373363",
+        "0x367d0642125b82a5110674697e1d266710b053f88b3ce39ba4c504bffba4709e",
+        "0xeebdf4f3721d686de7ae2e3fda44c5cb6203a80b564e6056bcb72e37fa2c1ccb",
+        "0x810a53a87df674a4aa2c67b6105bad8148b38b5f6a1edd041e267a58ea06b71c"
+      ]
+    }
+  ]
+}

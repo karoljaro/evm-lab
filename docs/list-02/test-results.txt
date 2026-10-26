@@ -1,0 +1,120 @@
+$ hardhat build && tsc --noEmit && hardhat test
+
+Compiled 1 Solidity file with solc 0.8.37 (evm target: cancun)
+No contracts to compile
+
+Running Solidity tests
+
+  test/list-02/PoolMath.t.sol:PoolMathTest
+    ✔ test_ZeroInputsAndEmptyOrExhaustedReserves()
+    ✔ test_ReserveCapPreventsMultiplicationOverflow()
+    ✔ test_FeeGoldenValuesAndIntegerRounding()
+    ✔ testFuzz_QuoteInputIsSufficientAndOneLessIsNot(uint96) (runs: 256)
+
+  test/list-02/FlashSwap.t.sol:FlashSwapTest
+    ✔ test_UnprofitableArbitrageRevertsBothMarkets()
+    ✔ test_RepaymentInOtherToken()
+    ✔ test_OverflowInsideCallbackRevertsMintAndBorrow()
+    ✔ test_OptimisticTransferAndExactSameTokenRepayment()
+    ✔ test_OneWeiUnderpaymentRevertsEveryTransfer()
+    ✔ test_NoRepaymentFailsInputCheck()
+    ✔ test_NoFeeFundingAndCallbackFailureAreAtomic()
+    ✔ test_MaliciousCallbackCannotReenterAnyReserveMutation()
+    ✔ test_ForgedCallbacksAndThirdPartyExecutionRejected()
+    ✔ test_FlashToken1AndBothOutputsInferBothInputs()
+    ✔ test_CaughtReentrancyStillRequiresFullRepayment()
+    ✔ test_ArbitrageStartsWithZeroTokensAndPaysProfit()
+    ✔ test_ArbitrageMinProfitAndDeadline()
+    ✔ testFuzz_MinimumFlashRepayment(uint96) (runs: 256)
+
+  test/list-02/Routing.t.sol:RoutingTest
+    ✔ test_V2RouterSupportsReverseDirectionAndMinimumOutput()
+    ✔ test_V1TokenEthTokenUsesTwoSeparatePoolsAtomically()
+    ✔ test_V1InvalidRouteAndInsufficientFunds()
+    ✔ test_V1IntermediateSlippageAndDeadline()
+    ✔ test_V1FinalSlippageRollsBackBothHopsAndApproval()
+
+  test/list-02/MiniUniswapV1.t.sol:MiniUniswapV1Test
+    ✔ test_ZeroInputsAndTooSmallInitialDeposit()
+    ✔ test_WithdrawalSlippageBothAssets()
+    ✔ test_WithdrawAllUserSharesLeavesMinimumLiquidity()
+    ✔ test_TransferableLpAndProportionalWithdrawal()
+    ✔ test_TokenToEthUses997AndRetainsFee()
+    ✔ test_TokenHookCannotReenterDepositOrSwap()
+    ✔ test_TaxedInputRejectedOnDepositAndSwap()
+    ✔ test_SwapSlippageRevertsBalancesAtomically()
+    ✔ test_ReserveOverflowAndInvalidAddresses()
+    ✔ test_ProportionalDepositPullsOnlyRequiredTokens()
+    ✔ test_NoReturnTokenIsSupported()
+    ✔ test_InsufficientBalanceAllowanceAndLp()
+    ✔ test_InitialLiquidityAndLockedShares()
+    ✔ test_FalseReturnTokenRevertsOnInputAndOutput()
+    ✔ test_EthToTokenUses997AndRetainsFee()
+    ✔ test_EthReentrancyBlockedEvenWhenCaught()
+    ✔ test_EthReceiverRevertRollsBackTokenTransferAndBurn()
+    ✔ test_EmptyPoolAndOutputRoundedToZero()
+    ✔ test_DonationsSyncAndLiveBalancePricing()
+    ✔ test_DepositSlippageAndMinShares()
+    ✔ test_DepositRoundsTokensUpAndSharesDown()
+    ✔ test_AllEntryPointsEnforceDeadline()
+    ✔ testFuzz_DepositWithdrawalCannotCreateValue(uint96) (runs: 256)
+    ✔ testFuzz_BothSwapDirectionsPreserveK(uint96) (runs: 256)
+
+  test/list-02/MiniUniswapV2.t.sol:MiniUniswapV2Test
+    ✔ test_UnsyncedTransferIsPublicInputNotAnEscrow()
+    ✔ test_TransferLpAndRemoveLiquidity()
+    ✔ test_TradingFeesAccrueToLpAndIncreaseK()
+    ✔ test_TokenHookCannotReenterDepositSwapOrWithdrawal()
+    ✔ test_TaxedInputDepositRejectedAndSwapFailsK()
+    ✔ test_SubsequentLiquidityUsesOptimalRatioBothBranches()
+    ✔ test_RouterSlippageAndDeadlineAreAtomic()
+    ✔ test_ReserveOverflowAndInvalidTokens()
+    ✔ test_RemoveAllUserSharesKeepsMinimumLocked()
+    ✔ test_OneWeiMoreThan997QuoteFails()
+    ✔ test_NoReturnTokenIsSupported()
+    ✔ test_NoFeeQuoteFailsKAndAtomicPrepaymentRollsBack()
+    ✔ test_MissingBalanceAllowanceAndLp()
+    ✔ test_LiquiditySlippageChecksAllMinima()
+    ✔ test_LiquidityDeadlinesAndBoundary()
+    ✔ test_InvalidRecipientsAndMissingCallbackContract()
+    ✔ test_InsufficientOutputReservesAndMissingInput()
+    ✔ test_InitialLiquidityAndLpShares()
+    ✔ test_InitialAsymmetricLiquidityUsesGeometricMean()
+    ✔ test_FailedSecondTokenDepositRollsBackFirst()
+    ✔ test_FailedOutputTransferRollsBackPrepaymentAndBurn()
+    ✔ test_EmptyPoolZeroInputsAndMinimumLiquidity()
+    ✔ test_DonationSyncAndLiquidityDoNotMintDonatedValue()
+    ✔ test_BothDirectionsAndAmountInEvents()
+    ✔ testFuzz_SwapsPreserveFeeAdjustedK(uint96,bool) (runs: 256)
+    ✔ testFuzz_MixedSequenceKeepsReservesAndSwapK(uint256) (runs: 256)
+    ✔ testFuzz_LpRoundTripCannotCreateValue(uint96) (runs: 256)
+
+Running node:test tests
+
+  List 01 / Task 02.1 - Proposal state machine
+    ✔ moves from Pending to Active to Defeated when nobody votes
+
+  List 01 / Task 02.2 - Community rejection
+    ✔ rejects a proposal when Against votes outweigh For votes
+
+  List 01 / Task 02.3 - Governor settings
+    ✔ finishes voting after a voting period of 5 blocks
+
+  List 01 / Task 02.4 - Double voting
+    ✔ prevents double voting and ignores voting power received after the snapshot
+
+  List 01 / Task 02.5 - Checkpoints
+    ✔ uses voting power from the proposal snapshot instead of current voting power
+
+  List 01 / Task 02.6 - Abstain and quorum
+    ✔ counts Abstain votes toward quorum without counting them as Against
+
+  List 01 / Task 02.7 - Proposal threshold
+    ✔ prevents an account with only 100 GOV of voting power from creating a proposal
+
+  List 02 / Routing and measured transaction gas
+    ✔ compares two V1 pools with direct V2 using isolated transaction receipts (163ms)
+
+
+82 passing (74 solidity, 8 nodejs)
+

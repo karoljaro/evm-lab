@@ -92,3 +92,15 @@ Laboratory exercises are implemented as automated tests and can be found
 in the [`test/`](./test/) directory.
 
 - [List 01](./docs/list-01/README.md)
+- [Lista 02 — Mini Uniswap v1 i v2](./docs/list-02/README.md)
+
+Lista 02 zawiera pule ERC20/ETH i ERC20/ERC20, tokeny LP, flash swapy,
+testy bezpieczeństwa i pomiary gazu. Całość działa lokalnie przez Bun i Hardhat:
+
+```bash
+bun run test:list-02
+bun run test:list-02:gas
+```
+
+Pełna dokumentacja po polsku, opis uproszczeń i odpowiedzi na cztery pytania
+projektowe znajdują się w [dokumentacji listy 02](./docs/list-02/README.md).

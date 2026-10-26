@@ -9,6 +9,7 @@ export default defineConfig({
       default: {
         version: "0.8.37",
         settings: {
+          evmVersion: "cancun",
           optimizer: {
             enabled: true,
             runs: 200,
@@ -19,6 +20,7 @@ export default defineConfig({
       production: {
         version: "0.8.37",
         settings: {
+          evmVersion: "cancun",
           optimizer: {
             enabled: true,
             runs: 200,
@@ -28,10 +30,20 @@ export default defineConfig({
     },
   },
 
+  test: {
+    solidity: {
+      fuzz: {
+        runs: 256,
+        seed: "0x02",
+      },
+    },
+  },
+
   networks: {
     hardhatMainnet: {
       type: "edr-simulated",
       chainType: "l1",
+      hardfork: "cancun",
     },
 
     hardhatOp: {
